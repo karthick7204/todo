@@ -7,9 +7,8 @@ import TodoList from "./components/TodoList";
 
 function App() {
   
-const [todos,setTodos] = useState([
-  
-]);
+const [todos,setTodos] = useState([]);
+const [todoValue, setTodoValue] = useState('')
 
 function handleAddTodo(newTodo){
   if (newTodo.trim() === '') {  
@@ -26,11 +25,19 @@ function handleDelete(index){
    setTodos(newtodolist);
 }
 
+function handleledit(index) {
+  const valueToBeEdited = todos[index]
+  setTodoValue(valueToBeEdited)
+  handleDelete(index)
+}
   return (
     
     <main>
-     <TodoInput handleAddTodo={handleAddTodo}/>
-     < TodoList handleDelete={handleDelete} todos ={todos}/>
+     <TodoInput 
+      todoValue={todoValue} 
+      setTodoValue={setTodoValue} 
+     handleAddTodo={handleAddTodo}/>
+     < TodoList handleledit={handleledit} handleDelete={handleDelete} todos ={todos}/>
      </main>
    
   )

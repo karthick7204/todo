@@ -1,5 +1,6 @@
 import React from "react";
-import { TodoCard } from "./TodoCard.jsx";
+import { TodoCard } from "./TodoCard";
+
 // import {TodoInput} from './TodoInput';
 export default function TodoList(props) {
   const { todos } = props;
